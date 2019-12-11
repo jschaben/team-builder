@@ -22,7 +22,8 @@ const MembersForm = props => {
                 <Col sm={12}>
                     <Input
                         required="true"
-                        type="name"
+                        type="text"
+                        name= "name"
                         placeholder="name"
                         value={person.name}
                         onChange={eventHandler}
