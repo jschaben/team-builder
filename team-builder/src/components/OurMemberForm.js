@@ -1,9 +1,9 @@
 import React, {useState} from "react";
 import {Col, Button, Form, FormGroup, Label, Input } from "reactstrap";
 
-const MemberForm = props => {
+const MembersForm = props => {
     const setTeam= props.setTeam;
-    const [person, setPerson] = useState({name= "", role: "", email: ""});
+    const [person, setPerson] = useState({name: "", role: "", email: ""});
     const eventHandler = event => {
         setPerson({...person, [event.target.name]: event.target.value});
     };
@@ -29,7 +29,39 @@ const MemberForm = props => {
                     />
                 </Col>
             </FormGroup>
+            <FormGroup row>
+        <Label for="role">Role: </Label>
+        <Col sm={12}>
+          <Input
+            required="true"
+            type="text"
+            name="role"
+            placeholder="role"
+            value={person.role}
+            onChange={eventHandler}
+          />
+        </Col>
+      </FormGroup>
+      <FormGroup row>
+        <Label for="email">Email: </Label>
+        <Col sm={12}>
+          <Input
+            required="true"
+            type="email"
+            name="email"
+            placeholder="email"
+            input={person.email}
+            onChange={eventHandler}
+          />
+        </Col>
+      </FormGroup>
+
+      <Button type="submit">Add Member</Button>
+
+
         </Form>
 
-    )
-}
+    );
+};
+
+export default MembersForm;
